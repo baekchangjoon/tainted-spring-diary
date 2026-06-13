@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/diary
+    username: postgres
+    password: ${POSTGRES_PASSWORD:postgrespw}
+  kafka:
+    bootstrap-servers: kafka:29092
+diary:
+  kek-base64: ${DIARY_KEK_BASE64:YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=}
