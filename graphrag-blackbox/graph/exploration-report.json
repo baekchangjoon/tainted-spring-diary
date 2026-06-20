@@ -1,0 +1,51 @@
+{
+  "endpoints" : [ {
+    "endpointId" : "delete-internal-diaries-id",
+    "totalBranches" : 0,
+    "coveredBranches" : 0,
+    "missedBranches" : [ ],
+    "pathsByEngine" : {
+      "heuristic" : 1
+    },
+    "solverRelevantMissed" : 0
+  }, {
+    "endpointId" : "get-internal-diaries-id",
+    "totalBranches" : 0,
+    "coveredBranches" : 0,
+    "missedBranches" : [ ],
+    "pathsByEngine" : {
+      "heuristic" : 3
+    },
+    "solverRelevantMissed" : 0
+  }, {
+    "endpointId" : "get-internal-diaries-id-content",
+    "totalBranches" : 0,
+    "coveredBranches" : 0,
+    "missedBranches" : [ ],
+    "pathsByEngine" : {
+      "heuristic" : 3
+    },
+    "solverRelevantMissed" : 0
+  }, {
+    "endpointId" : "post-internal-diaries",
+    "totalBranches" : 0,
+    "coveredBranches" : 0,
+    "missedBranches" : [ ],
+    "pathsByEngine" : {
+      "heuristic" : 2
+    },
+    "solverRelevantMissed" : 0
+  }, {
+    "endpointId" : "put-internal-diaries-id",
+    "totalBranches" : 0,
+    "coveredBranches" : 0,
+    "missedBranches" : [ ],
+    "pathsByEngine" : {
+      "heuristic" : 2
+    },
+    "solverRelevantMissed" : 0
+  } ],
+  "coveredAppBranches" : 0,
+  "totalAppBranches" : 4,
+  "coveredAppClasses" : [ ]
+}

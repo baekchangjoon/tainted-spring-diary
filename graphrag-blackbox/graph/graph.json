@@ -1,0 +1,897 @@
+{
+  "sutId" : "diary",
+  "commitSha" : "unknown",
+  "endpoints" : [ {
+    "id" : "delete-internal-diaries-id",
+    "httpMethod" : "DELETE",
+    "path" : "/internal/diaries/{id}",
+    "handlerClass" : "com.tainted.diary.web.DiaryController",
+    "handlerMethod" : "delete",
+    "params" : [ {
+      "name" : "id",
+      "javaType" : "java.lang.String",
+      "kind" : "PATH"
+    } ],
+    "authRequired" : false
+  }, {
+    "id" : "get-internal-diaries-id",
+    "httpMethod" : "GET",
+    "path" : "/internal/diaries/{id}",
+    "handlerClass" : "com.tainted.diary.web.DiaryController",
+    "handlerMethod" : "getMeta",
+    "params" : [ {
+      "name" : "id",
+      "javaType" : "java.lang.String",
+      "kind" : "PATH"
+    } ],
+    "authRequired" : false
+  }, {
+    "id" : "get-internal-diaries-id-content",
+    "httpMethod" : "GET",
+    "path" : "/internal/diaries/{id}/content",
+    "handlerClass" : "com.tainted.diary.web.DiaryController",
+    "handlerMethod" : "getContent",
+    "params" : [ {
+      "name" : "id",
+      "javaType" : "java.lang.String",
+      "kind" : "PATH"
+    } ],
+    "authRequired" : false
+  }, {
+    "id" : "post-internal-diaries",
+    "httpMethod" : "POST",
+    "path" : "/internal/diaries",
+    "handlerClass" : "com.tainted.diary.web.DiaryController",
+    "handlerMethod" : "create",
+    "params" : [ {
+      "name" : "request",
+      "javaType" : "com.tainted.diary.web.dto.CreateDiaryRequest",
+      "kind" : "BODY"
+    } ],
+    "authRequired" : false
+  }, {
+    "id" : "put-internal-diaries-id",
+    "httpMethod" : "PUT",
+    "path" : "/internal/diaries/{id}",
+    "handlerClass" : "com.tainted.diary.web.DiaryController",
+    "handlerMethod" : "update",
+    "params" : [ {
+      "name" : "id",
+      "javaType" : "java.lang.String",
+      "kind" : "PATH"
+    }, {
+      "name" : "request",
+      "javaType" : "com.tainted.diary.web.dto.UpdateDiaryRequest",
+      "kind" : "BODY"
+    } ],
+    "authRequired" : false
+  } ],
+  "paths" : [ {
+    "id" : "delete-internal-diaries-id-s204-1",
+    "endpointId" : "delete-internal-diaries-id",
+    "sampleInput" : {
+      "id" : "probe-id-98710"
+    },
+    "expectedStatus" : 204,
+    "sampleResponse" : null,
+    "capturedSqlIds" : [ "sql-delete-internal-diaries-id-s204-1-1", "sql-delete-internal-diaries-id-s204-1-2" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ "seed-delete-internal-diaries-id-p0-0" ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "get-internal-diaries-id-s200-1",
+    "endpointId" : "get-internal-diaries-id",
+    "sampleInput" : {
+      "id" : "probe-id-94801"
+    },
+    "expectedStatus" : 200,
+    "sampleResponse" : {
+      "diaryId" : "probe-id-94801",
+      "userId" : "probe",
+      "primaryEmotion" : "probe",
+      "energyScore" : 1,
+      "timestamp" : "2036-12-31T15:00:00Z"
+    },
+    "capturedSqlIds" : [ "sql-get-internal-diaries-id-s200-1-1" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ "seed-get-internal-diaries-id-1" ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "get-internal-diaries-id-s404-1",
+    "endpointId" : "get-internal-diaries-id",
+    "sampleInput" : { },
+    "expectedStatus" : 404,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Diary not found",
+      "status" : 404,
+      "detail" : "diary not found: missing",
+      "instance" : "/internal/diaries/missing"
+    },
+    "capturedSqlIds" : [ "sql-get-internal-diaries-id-s404-1-1" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "get-internal-diaries-id-s404-2",
+    "endpointId" : "get-internal-diaries-id",
+    "sampleInput" : {
+      "id" : ""
+    },
+    "expectedStatus" : 404,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Not Found",
+      "status" : 404,
+      "detail" : "No static resource internal/diaries.",
+      "instance" : "/internal/diaries/"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "get-internal-diaries-id-content-s500-1",
+    "endpointId" : "get-internal-diaries-id-content",
+    "sampleInput" : {
+      "id" : "probe-id-98829"
+    },
+    "expectedStatus" : 500,
+    "sampleResponse" : {
+      "timestamp" : "2026-06-20T05:59:24.935+00:00",
+      "status" : 500,
+      "error" : "Internal Server Error",
+      "path" : "/internal/diaries/probe-id-98829/content"
+    },
+    "capturedSqlIds" : [ "sql-get-internal-diaries-id-content-s500-1-1" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "get-internal-diaries-id-content-s404-1",
+    "endpointId" : "get-internal-diaries-id-content",
+    "sampleInput" : { },
+    "expectedStatus" : 404,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Diary not found",
+      "status" : 404,
+      "detail" : "diary not found: missing",
+      "instance" : "/internal/diaries/missing/content"
+    },
+    "capturedSqlIds" : [ "sql-get-internal-diaries-id-content-s404-1-1" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "get-internal-diaries-id-content-s404-2",
+    "endpointId" : "get-internal-diaries-id-content",
+    "sampleInput" : {
+      "id" : ""
+    },
+    "expectedStatus" : 404,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Not Found",
+      "status" : 404,
+      "detail" : "No static resource internal/diaries/content.",
+      "instance" : "/internal/diaries//content"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "post-internal-diaries-s201-1",
+    "endpointId" : "post-internal-diaries",
+    "sampleInput" : {
+      "userId" : "sample-userId",
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1
+    },
+    "expectedStatus" : 201,
+    "sampleResponse" : {
+      "diaryId" : "b3302960-0118-437b-9fab-f3f6577b15c6",
+      "userId" : "sample-userId",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1,
+      "timestamp" : "2026-06-20T05:59:26.398574Z"
+    },
+    "capturedSqlIds" : [ "sql-post-internal-diaries-s201-1-1", "sql-post-internal-diaries-s201-1-2" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ "event-post-internal-diaries-s201-1-1" ]
+  }, {
+    "id" : "post-internal-diaries-s400-1",
+    "endpointId" : "post-internal-diaries",
+    "sampleInput" : {
+      "userId" : "sample-userId",
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 0
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "post-internal-diaries-negval-content-not_blank",
+    "endpointId" : "post-internal-diaries",
+    "sampleInput" : {
+      "userId" : "sample-userId",
+      "title" : "sample-title",
+      "content" : "",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:content:NOT_BLANK" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "post-internal-diaries-negval-energyScore-not_null",
+    "endpointId" : "post-internal-diaries",
+    "sampleInput" : {
+      "userId" : "sample-userId",
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion"
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:energyScore:NOT_NULL" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "post-internal-diaries-negval-energyScore-min",
+    "endpointId" : "post-internal-diaries",
+    "sampleInput" : {
+      "userId" : "sample-userId",
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 0
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:energyScore:MIN" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "post-internal-diaries-negval-energyScore-max",
+    "endpointId" : "post-internal-diaries",
+    "sampleInput" : {
+      "userId" : "sample-userId",
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 11
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:energyScore:MAX" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "put-internal-diaries-id-s200-1",
+    "endpointId" : "put-internal-diaries-id",
+    "sampleInput" : {
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1,
+      "id" : "probe-id-96986"
+    },
+    "expectedStatus" : 200,
+    "sampleResponse" : {
+      "diaryId" : "probe-id-96986",
+      "userId" : "probe",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1,
+      "timestamp" : "2036-12-31T15:00:00Z"
+    },
+    "capturedSqlIds" : [ "sql-put-internal-diaries-id-s200-1-1", "sql-put-internal-diaries-id-s200-1-2" ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ "seed-put-internal-diaries-id-p0-0" ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "put-internal-diaries-id-s400-1",
+    "endpointId" : "put-internal-diaries-id",
+    "sampleInput" : {
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 0,
+      "id" : "probe-id-96986_1"
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries/probe-id-96986"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "heuristic",
+    "constraints" : [ ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ "seed-put-internal-diaries-id-p1-0" ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "put-internal-diaries-id-negval-content-not_blank",
+    "endpointId" : "put-internal-diaries-id",
+    "sampleInput" : {
+      "title" : "sample-title",
+      "content" : "",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1,
+      "id" : "probe-id-96986"
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries/probe-id-96986"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:content:NOT_BLANK" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "put-internal-diaries-id-negval-energyScore-not_null",
+    "endpointId" : "put-internal-diaries-id",
+    "sampleInput" : {
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "id" : "probe-id-96986"
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries/probe-id-96986"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:energyScore:NOT_NULL" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "put-internal-diaries-id-negval-energyScore-min",
+    "endpointId" : "put-internal-diaries-id",
+    "sampleInput" : {
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 0,
+      "id" : "probe-id-96986"
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries/probe-id-96986"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:energyScore:MIN" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  }, {
+    "id" : "put-internal-diaries-id-negval-energyScore-max",
+    "endpointId" : "put-internal-diaries-id",
+    "sampleInput" : {
+      "title" : "sample-title",
+      "content" : "sample-content",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 11,
+      "id" : "probe-id-96986"
+    },
+    "expectedStatus" : 400,
+    "sampleResponse" : {
+      "type" : "about:blank",
+      "title" : "Bad Request",
+      "status" : 400,
+      "detail" : "Invalid request content.",
+      "instance" : "/internal/diaries/probe-id-96986"
+    },
+    "capturedSqlIds" : [ ],
+    "capturedHttpCallIds" : [ ],
+    "branchesTaken" : [ ],
+    "discoveredBy" : "negative-validation",
+    "constraints" : [ "negative-validation:energyScore:MAX" ],
+    "validationWarnings" : [ ],
+    "requiredSeedIds" : [ ],
+    "capturedEventEmitIds" : [ ]
+  } ],
+  "sql" : [ {
+    "id" : "sql-delete-internal-diaries-id-s204-1-1",
+    "pathId" : "delete-internal-diaries-id-s204-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "probe-id-98710",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-delete-internal-diaries-id-s204-1-2",
+    "pathId" : "delete-internal-diaries-id-s204-1",
+    "sqlKind" : "DELETE",
+    "normalizedSql" : "delete from diary_entry where id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "probe-id-98710",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-get-internal-diaries-id-s200-1-1",
+    "pathId" : "get-internal-diaries-id-s200-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "probe-id-94801",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-get-internal-diaries-id-s404-1-1",
+    "pathId" : "get-internal-diaries-id-s404-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "missing",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-get-internal-diaries-id-content-s500-1-1",
+    "pathId" : "get-internal-diaries-id-content-s500-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "probe-id-98829",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-get-internal-diaries-id-content-s404-1-1",
+    "pathId" : "get-internal-diaries-id-content-s404-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "missing",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-post-internal-diaries-s201-1-1",
+    "pathId" : "post-internal-diaries-s201-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "b3302960-0118-437b-9fab-f3f6577b15c6",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-post-internal-diaries-s201-1-2",
+    "pathId" : "post-internal-diaries-s201-1",
+    "sqlKind" : "INSERT",
+    "normalizedSql" : "insert into diary_entry (content_iv,dek_iv,encrypted_content,encrypted_dek,encrypted_title,energy_score,primary_emotion,timestamp,title_iv,user_id,id) values (?,?,?,?,?,?,?,?,?,?,?)",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "content_iv",
+      "value" : "IuHsJWXQujyGlG2E",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 2,
+      "column" : "dek_iv",
+      "value" : "WNwiehTrk2bKUFtv",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 3,
+      "column" : "encrypted_content",
+      "value" : "M6sWRjBxaz8ek60fmgMAWZVbg6f37LBy8t9GC+L4",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 4,
+      "column" : "encrypted_dek",
+      "value" : "CbpAWFr/WzCSsOQtL/EmV1YjkJxMGD78uIf/q5Z4GAY22kSIVDK5dy2LNG5wGusB",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 5,
+      "column" : "encrypted_title",
+      "value" : "wYmpC3YQc/9vD7/COzbKSNV8iqdoY0G5kLbTSw==",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 6,
+      "column" : "energy_score",
+      "value" : "1",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    }, {
+      "position" : 7,
+      "column" : "primary_emotion",
+      "value" : "sample-primaryEmotion",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    }, {
+      "position" : 8,
+      "column" : "timestamp",
+      "value" : "2026-06-20 14:59:26.398574",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 9,
+      "column" : "title_iv",
+      "value" : "arjM3aDBVlKikKfN",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 10,
+      "column" : "user_id",
+      "value" : "sample-userId",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    }, {
+      "position" : 11,
+      "column" : "id",
+      "value" : "b3302960-0118-437b-9fab-f3f6577b15c6",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-put-internal-diaries-id-s200-1-1",
+    "pathId" : "put-internal-diaries-id-s200-1",
+    "sqlKind" : "SELECT",
+    "normalizedSql" : "select de1_0.id,de1_0.content_iv,de1_0.dek_iv,de1_0.encrypted_content,de1_0.encrypted_dek,de1_0.encrypted_title,de1_0.energy_score,de1_0.primary_emotion,de1_0.timestamp,de1_0.title_iv,de1_0.user_id from diary_entry de1_0 where de1_0.id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "id",
+      "value" : "probe-id-96986",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    } ]
+  }, {
+    "id" : "sql-put-internal-diaries-id-s200-1-2",
+    "pathId" : "put-internal-diaries-id-s200-1",
+    "sqlKind" : "UPDATE",
+    "normalizedSql" : "update diary_entry set content_iv=?,dek_iv=?,encrypted_content=?,encrypted_dek=?,encrypted_title=?,energy_score=?,primary_emotion=?,timestamp=?,title_iv=?,user_id=? where id=?",
+    "tableName" : "diary_entry",
+    "bindings" : [ {
+      "position" : 1,
+      "column" : "content_iv",
+      "value" : "giJRHfGBl2DjUpcy",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 2,
+      "column" : "dek_iv",
+      "value" : "T1vNEOrwPi/XZMAS",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 3,
+      "column" : "encrypted_content",
+      "value" : "1Wz66zDLo8nbks+idpvYYAEfuhy+S/7UzHtKg/f+",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 4,
+      "column" : "encrypted_dek",
+      "value" : "crWekX0K6+QNv2GEch7X7psBRv+IzREDRZBH4xn1LX9S/CQhxBg2yRaHAC0AYhYD",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 5,
+      "column" : "encrypted_title",
+      "value" : "3T8iwHIneiG4lE+S8nMNGw6ETLdBuV5AVRwNUQ==",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 6,
+      "column" : "energy_score",
+      "value" : "1",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    }, {
+      "position" : 7,
+      "column" : "primary_emotion",
+      "value" : "sample-primaryEmotion",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    }, {
+      "position" : 8,
+      "column" : "timestamp",
+      "value" : "2037-01-01 00:00:00.0",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 9,
+      "column" : "title_iv",
+      "value" : "2+ZfQmqLuEFIQmpu",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 10,
+      "column" : "user_id",
+      "value" : "probe",
+      "origin" : "LITERAL",
+      "table" : "diary_entry"
+    }, {
+      "position" : 11,
+      "column" : "id",
+      "value" : "probe-id-96986",
+      "origin" : "API_PARAM",
+      "table" : "diary_entry"
+    } ]
+  } ],
+  "tables" : [ {
+    "name" : "diary_entry",
+    "columns" : [ {
+      "name" : "id",
+      "jdbcType" : "VARCHAR",
+      "nullable" : false,
+      "primaryKey" : true,
+      "autoIncrement" : false
+    }, {
+      "name" : "content_iv",
+      "jdbcType" : "VARCHAR",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "dek_iv",
+      "jdbcType" : "VARCHAR",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "encrypted_content",
+      "jdbcType" : "TEXT",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "encrypted_dek",
+      "jdbcType" : "TEXT",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "encrypted_title",
+      "jdbcType" : "TEXT",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "energy_score",
+      "jdbcType" : "INT4",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "primary_emotion",
+      "jdbcType" : "VARCHAR",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "timestamp",
+      "jdbcType" : "TIMESTAMPTZ",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "title_iv",
+      "jdbcType" : "VARCHAR",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    }, {
+      "name" : "user_id",
+      "jdbcType" : "VARCHAR",
+      "nullable" : false,
+      "primaryKey" : false,
+      "autoIncrement" : false
+    } ],
+    "foreignKeys" : [ ],
+    "uniqueKeys" : [ [ "id" ] ]
+  } ],
+  "mappers" : [ ],
+  "httpCalls" : [ ],
+  "wsEndpoints" : [ ],
+  "wsExchanges" : [ ],
+  "kafkaConsumers" : [ ],
+  "kafkaExchanges" : [ ],
+  "seeds" : [ {
+    "id" : "seed-delete-internal-diaries-id-p0-0",
+    "pathId" : "delete-internal-diaries-id-s204-1",
+    "table" : "diary_entry",
+    "columns" : [ "id", "content_iv", "dek_iv", "encrypted_content", "encrypted_dek", "encrypted_title", "energy_score", "primary_emotion", "timestamp", "title_iv", "user_id" ],
+    "values" : [ "probe-id-98710", "probe", "probe", "probe", "probe", "probe", "1", "probe", "2037-01-01T00:00", "probe", "probe" ]
+  }, {
+    "id" : "seed-get-internal-diaries-id-1",
+    "pathId" : "get-internal-diaries-id-s200-1",
+    "table" : "diary_entry",
+    "columns" : [ "id", "content_iv", "dek_iv", "encrypted_content", "encrypted_dek", "encrypted_title", "energy_score", "primary_emotion", "timestamp", "title_iv", "user_id" ],
+    "values" : [ "probe-id-94801", "probe", "probe", "probe", "probe", "probe", "1", "probe", "2037-01-01T00:00", "probe", "probe" ]
+  }, {
+    "id" : "seed-get-internal-diaries-id-content-1",
+    "pathId" : null,
+    "table" : "diary_entry",
+    "columns" : [ "id", "content_iv", "dek_iv", "encrypted_content", "encrypted_dek", "encrypted_title", "energy_score", "primary_emotion", "timestamp", "title_iv", "user_id" ],
+    "values" : [ "probe-id-98829", "probe", "probe", "probe", "probe", "probe", "1", "probe", "2037-01-01T00:00", "probe", "probe" ]
+  }, {
+    "id" : "seed-put-internal-diaries-id-p0-0",
+    "pathId" : "put-internal-diaries-id-s200-1",
+    "table" : "diary_entry",
+    "columns" : [ "id", "content_iv", "dek_iv", "encrypted_content", "encrypted_dek", "encrypted_title", "energy_score", "primary_emotion", "timestamp", "title_iv", "user_id" ],
+    "values" : [ "probe-id-96986", "probe", "probe", "probe", "probe", "probe", "1", "probe", "2037-01-01T00:00", "probe", "probe" ]
+  }, {
+    "id" : "seed-put-internal-diaries-id-p1-0",
+    "pathId" : "put-internal-diaries-id-s400-1",
+    "table" : "diary_entry",
+    "columns" : [ "id", "content_iv", "dek_iv", "encrypted_content", "encrypted_dek", "encrypted_title", "energy_score", "primary_emotion", "timestamp", "title_iv", "user_id" ],
+    "values" : [ "probe-id-96986_1", "probe", "probe", "probe", "probe", "probe", "1", "probe", "2037-01-01T00:00", "probe", "probe" ]
+  } ],
+  "capturedEventEmits" : [ {
+    "id" : "event-post-internal-diaries-s201-1-1",
+    "pathId" : "post-internal-diaries-s201-1",
+    "topic" : "diary.created",
+    "key" : "b3302960-0118-437b-9fab-f3f6577b15c6",
+    "payload" : {
+      "eventId" : "565a865c-c9df-4fa6-a9ef-2f02b435b477",
+      "userId" : "sample-userId",
+      "diaryId" : "b3302960-0118-437b-9fab-f3f6577b15c6",
+      "primaryEmotion" : "sample-primaryEmotion",
+      "energyScore" : 1,
+      "occurredAt" : "2026-06-20T05:59:26.398574Z"
+    }
+  } ]
+}
