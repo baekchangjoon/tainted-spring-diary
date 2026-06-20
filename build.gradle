@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '3.4.1'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'java'
+    id 'jacoco'
 }
 
 group = 'com.tainted'
@@ -50,4 +51,47 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
+
+jacoco {
+    toolVersion = '0.8.12'
+}
+
+// 커버리지 산정에서 제외할 클래스 — 비-로직 wiring/부트스트랩만 제외한다.
+def jacocoExclusions = [
+        'com/tainted/diary/DiaryApplication.*',   // Spring Boot main(): 부트스트랩 진입점, 단위 테스트 대상 아님
+        'com/tainted/diary/config/**'             // @Configuration 빈 정의(OpenApi/Clock/Kafka topic): 단순 wiring
+]
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: jacocoExclusions)
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: jacocoExclusions)
+        }))
+    }
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.80
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
